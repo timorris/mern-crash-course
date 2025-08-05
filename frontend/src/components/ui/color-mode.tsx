@@ -1,18 +1,29 @@
+
 'use client'
 
 import { ClientOnly, IconButton, Skeleton, Span } from '@chakra-ui/react'
 import { ThemeProvider, useTheme } from 'next-themes'
-
 import * as React from 'react'
 import { LuMoon, LuSun } from 'react-icons/lu'
 
-export function ColorModeProvider(props) {
+interface ColorModeProviderProps {
+  children: React.ReactNode;
+  [key: string]: any;
+}
+
+export function ColorModeProvider(props: ColorModeProviderProps) {
   return (
     <ThemeProvider attribute='class' disableTransitionOnChange {...props} />
   )
 }
 
-export function useColorMode() {
+interface ColorModeReturn {
+  colorMode: string | undefined;
+  setColorMode: (theme: string) => void;
+  toggleColorMode: () => void;
+}
+
+export function useColorMode(): ColorModeReturn {
   const { resolvedTheme, setTheme, forcedTheme } = useTheme()
   const colorMode = forcedTheme || resolvedTheme
   const toggleColorMode = () => {
@@ -25,17 +36,21 @@ export function useColorMode() {
   }
 }
 
-export function useColorModeValue(light, dark) {
+export function useColorModeValue<T>(light: T, dark: T): T {
   const { colorMode } = useColorMode()
   return colorMode === 'dark' ? dark : light
 }
 
-export function ColorModeIcon() {
+export function ColorModeIcon(): JSX.Element {
   const { colorMode } = useColorMode()
   return colorMode === 'dark' ? <LuMoon /> : <LuSun />
 }
 
-export const ColorModeButton = React.forwardRef(
+interface ColorModeButtonProps {
+  [key: string]: any;
+}
+
+export const ColorModeButton = React.forwardRef<HTMLButtonElement, ColorModeButtonProps>(
   function ColorModeButton(props, ref) {
     const { toggleColorMode } = useColorMode()
     return (
@@ -61,7 +76,12 @@ export const ColorModeButton = React.forwardRef(
   },
 )
 
-export const LightMode = React.forwardRef(function LightMode(props, ref) {
+interface ModeProps {
+  children: React.ReactNode;
+  [key: string]: any;
+}
+
+export const LightMode = React.forwardRef<HTMLSpanElement, ModeProps>(function LightMode(props, ref) {
   return (
     <Span
       color='fg'
@@ -75,7 +95,7 @@ export const LightMode = React.forwardRef(function LightMode(props, ref) {
   )
 })
 
-export const DarkMode = React.forwardRef(function DarkMode(props, ref) {
+export const DarkMode = React.forwardRef<HTMLSpanElement, ModeProps>(function DarkMode(props, ref) {
   return (
     <Span
       color='fg'

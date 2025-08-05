@@ -1,3 +1,4 @@
+
 'use client'
 
 import {
@@ -14,7 +15,7 @@ export const toaster = createToaster({
   pauseOnPageIdle: true,
 })
 
-export const Toaster = () => {
+export const Toaster = (): JSX.Element => {
   return (
     <Portal>
       <ChakraToaster toaster={toaster} insetInline={{ mdDown: '4' }}>

@@ -1,6 +1,7 @@
+
 import React from 'react';
 
-const CreatePage = () => {
+const CreatePage: React.FC = () => {
   return (
     <div>
       Create Page
