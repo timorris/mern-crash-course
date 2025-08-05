@@ -1,0 +1,21 @@
+{
+    "_id": "7bba824b-d0e4-4172-a90b-24088490a229",
+    "colName": "products",
+    "created": "2025-08-05T20:29:10.593Z",
+    "sortNum": 10000,
+    "folders": [],
+    "requests": [
+        {
+            "_id": "9caf69d9-0b85-4dca-acb8-f5f6d2d0a75d",
+            "colId": "7bba824b-d0e4-4172-a90b-24088490a229",
+            "containerId": "",
+            "name": "GET products",
+            "url": "http://127.0.0.1:5000/api/products",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2025-08-05T20:29:57.753Z",
+            "modified": "2025-08-05T22:29:34.694Z",
+            "headers": []
+        }
+    ]
+}

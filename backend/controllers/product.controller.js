@@ -2,6 +2,9 @@ import mongoose from 'mongoose';
 import Product from '../models/product.model.js';
 
 export const getProducts = async (req, res) => {
+
+    //res.set('Access-Control-Allow-Origin', process.env.ORIGIN);
+
     try {
         const products = await Product.find({});
         res.status(200).json({ success: true, data: products });
@@ -13,7 +16,10 @@ export const getProducts = async (req, res) => {
 }
 
 export const createProduct = async (req, res) => {
+
     const product = req.body; // user will send product data in the request body
+
+    //res.set('Access-Control-Allow-Origin', process.env.ORIGIN);
 
     if (!product || !product.name || !product.price || !product.image) {
         return res.status(400).json({ success: false, message: 'Invalid product data' });
@@ -36,6 +42,8 @@ export const updateProduct = async (req, res) => {
     const { id } = req.params;
     const updates = req.body;
 
+    //res.set('Access-Control-Allow-Origin', process.env.ORIGIN);
+
     if (!mongoose.Types.ObjectId.isValid(id)) {
         return res.status(400).json({ success: false, message: 'Invalid product ID' });
     }
@@ -53,7 +61,10 @@ export const updateProduct = async (req, res) => {
 }
 
 export const deleteProduct = async (req, res) => {
+
     const {id} = req.params;
+
+    //res.set('Access-Control-Allow-Origin', process.env.ORIGIN);
 
     if (!mongoose.Types.ObjectId.isValid(id)) {
         return res.status(400).json({ success: false, message: 'Invalid product ID' });
