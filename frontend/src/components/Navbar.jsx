@@ -16,16 +16,16 @@ const Navbar = () => {
             bgClip={'text'}
             textAlign={"center"}
             fontSize={{ base: '22', sm: '28' }}
-            fontWeight={'extrabold'}>
-              <Link to={"/"}>Product Store <ShoppingCart fontSize={20} /></Link>
-            </Text>
-            <HStack spacing={2} alignItems={"center"}>
-              <Link to={"/create"}>
-                <Button>
-                  <CgAddR fontSize={20} />
-                </Button>
-              </Link>
-            </HStack>
+            fontWeight={'bold'}>
+            <Link to={"/"}>Product Store <ShoppingCart fontSize={20} /></Link>
+          </Text>
+          <HStack spacing={2} alignItems={"center"}>
+            <Link to={"/create"}>
+              <Button>
+                <CgAddR fontSize={20} />
+              </Button>
+            </Link>
+          </HStack>
       </Flex>
     </Container>
   );
