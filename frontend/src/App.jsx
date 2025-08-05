@@ -11,7 +11,7 @@ import Navbar from "./components/Navbar";
 function App() {
 
   return (
-    <Box minH="100vh" display="flex" flexDirection="column" justifyContent="center" alignItems="center" bg="gray.800" color="white">
+    <Box minH="100vh" color="white">
       <Navbar />
       {/*
       <Navbar bg="teal.500" color="white" p={4} width="100%" mb={8}>
