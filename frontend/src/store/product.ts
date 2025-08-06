@@ -1,5 +1,4 @@
 import { create } from 'zustand';
-//import { devtools, persist } from 'zustand/middleware';
 
 interface Product {
   _id?: string; // Optional for new products not yet saved
@@ -15,34 +14,17 @@ interface ProductResponse {
 
 interface ProductState {
   products: Product[];
-  //addProduct: (product: Product) => void;
-  //removeProduct: (id: string) => void;
-  //updateProduct: (id: string, updatedProduct: Partial<Product>) => void;
-  createProduct: (product: Product) => Promise<ProductResponse>; // Optional for creating a product
-  setProducts: (products: Product[]) => void; // Optional for setting initial products
-  fetchProducts: () => Promise<Product[]>; // Optional for fetching products from an API
-  deleteProduct: (id: string) => Promise<ProductResponse>; // Optional for deleting a product
-  updateProduct: (id: string, updatedProduct: Product) => Promise<ProductResponse>; // Required for updating a product
+  createProduct: (product: Product) => Promise<ProductResponse>;
+  setProducts: (products: Product[]) => void;
+  fetchProducts: () => Promise<Product[]>;
+  deleteProduct: (id: string) => Promise<ProductResponse>;
+  updateProduct: (id: string, updatedProduct: Product) => Promise<ProductResponse>;
 }
 
 export const useProductStore = create<ProductState>()(
   (set) => ({
 	products: [],
-	/*
-	addProduct: (product) => set((state) => ({
-	  products: [...state.products, product],
-	})),
-	removeProduct: (id) => set((state) => ({
-	  products: state.products.filter((product) => product.id !== id),
-	})),
-	updateProduct: (id, updatedProduct) => set((state) => ({
-	  products: state.products.map((product) => ({
-		...product,
-		...(product.id === id ? updatedProduct : {}),
-	  })),
-	})),
-	*/
-	setProducts: (products) => set({ products }), // Optional method to set products
+	setProducts: (products) => set({ products }),
 	createProduct: async (product) =>  {
 		if (!product.name || !product.price || !product.image) {
 			const response: ProductResponse = {

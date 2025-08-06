@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { Container, VStack, Text, SimpleGrid } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
 import { useProductStore } from '@/store/product';
@@ -25,10 +25,7 @@ const HomePage: React.FC = () => {
           fontWeight={'bold'}>
             Current Products
         </Text>
-
         <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} w={"full"} mt={8}>
-          {/* Here you would map through your products and display them */}
-          {/* Example product card */}
           {products.map(product => (
             <ProductCard key={product._id} product={product} />
           )) } 

@@ -70,17 +70,17 @@ const ProductCard: React.FC<ProductCardProps> = ({product}) => {
 	  	<Image src={product.image} alt={product.name} h={48} w="full" objectFit="cover" />
 	  	<Box p={4}>
 			<Heading as='h3' size='md' color='gray.600' mb={2}>
-		  		{product.name}	
+				{product.name}	
 			</Heading>
 			<Text textStyle='lg' fontWeight='bold' color='gray.600' mb={4}>
 				${product.price.toFixed(2)}
 			</Text>
 			<HStack>
-      			<Dialog.Trigger asChild>
+				<Dialog.Trigger asChild>
 					<IconButton aria-label='Edit Product' colorScheme='blue' onClick={handleOpen}>
 						<HiOutlinePencilAlt />
 					</IconButton>
-      			</Dialog.Trigger>
+				</Dialog.Trigger>
 				<IconButton aria-label='Delete Product' colorScheme='red' onClick={() => handleDelete(product._id)}>
 					<HiOutlineTrash />
 				</IconButton>
@@ -94,32 +94,29 @@ const ProductCard: React.FC<ProductCardProps> = ({product}) => {
               			<Dialog.Title>Update {updatedProduct.name}</Dialog.Title>
             		</Dialog.Header>
             		<Dialog.Body>
-						<Box w='full' bg='gray.600' p={6} borderRadius='lg' shadow='md'>
+									<Box w='full' bg='gray.600' p={6} borderRadius='lg' shadow='md'>
           					<VStack>
             					<Input
               						name='name'
               						placeholder='Product Name'
               						value={updatedProduct.name}
               						onChange={(e) => setUpdateProduct({ ...updatedProduct, name: e.target.value })}
-              						mb={4}
-            					/>
+              						mb={4} />
             					<Input
-									name='price'
-									placeholder='Price'
-									type='number'
-									value={updatedProduct.price}
-									onChange={(e) => setUpdateProduct({ ...updatedProduct, price: parseFloat(e.target.value) })}
-									mb={4}
-								/>
-								<Input
-									name='image'
-									placeholder='Image URL'
-									value={updatedProduct.image}
-									onChange={(e) => setUpdateProduct({ ...updatedProduct, image: e.target.value })}
-									mb={4}
-								/>
-							</VStack>
-						</Box>
+												name='price'
+												placeholder='Price'
+												type='number'
+												value={updatedProduct.price}
+												onChange={(e) => setUpdateProduct({ ...updatedProduct, price: parseFloat(e.target.value) })}
+												mb={4} />
+											<Input
+												name='image'
+												placeholder='Image URL'
+												value={updatedProduct.image}
+												onChange={(e) => setUpdateProduct({ ...updatedProduct, image: e.target.value })}
+												mb={4} />
+										</VStack>
+									</Box>
             		</Dialog.Body>
             		<Dialog.Footer>
               			<Dialog.ActionTrigger asChild>
@@ -131,11 +128,11 @@ const ProductCard: React.FC<ProductCardProps> = ({product}) => {
             		</Dialog.Footer>
             		<Dialog.CloseTrigger asChild>
               			<CloseButton size="sm" />
-					</Dialog.CloseTrigger>
-				</Dialog.Content>
-			</Dialog.Positioner>
-      	</Portal>
-	</Box>
+								</Dialog.CloseTrigger>
+							</Dialog.Content>
+						</Dialog.Positioner>
+      		</Portal>
+				</Box>
     </Dialog.Root>
   );
 };
