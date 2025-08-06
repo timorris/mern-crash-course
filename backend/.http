@@ -9,3 +9,8 @@ POST http://localhost:5000/api/products
 }
 
 ####
+
+### Get Products
+GET http://localhost:5000/api/products
+
+####
