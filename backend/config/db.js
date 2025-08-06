@@ -1,4 +1,4 @@
-import { getEnvValue, getSecret } from "../util.js";
+import { getEnvValue, getSecret } from "./util.js";
 import mongoose from "mongoose";
 
 const secretLocation = getEnvValue('KEYVAULT_URL') ? 'keyvault' : 'env';

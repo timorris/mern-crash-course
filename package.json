@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon backend/server.js"
+    "dev": "NODE_ENV=development nodemon backend/server.js",
+    "build": "npm install && npm install --prefix frontend && npm run build --prefix frontend",
+    "start": "NODE_ENV=production node backend/server.js"
   },
   "type": "module",
   "keywords": [],
@@ -13,9 +15,15 @@
   "dependencies": {
     "@azure/identity": "^4.10.2",
     "@azure/keyvault-secrets": "^4.10.0",
+    "@types/cors": "^2.8.19",
+    "@types/node": "^24.2.0",
+    "@types/react": "^19.1.9",
+    "@types/react-dom": "^19.1.7",
+    "cors": "^2.8.5",
     "dotenv": "^17.2.1",
-    "express": "^5.1.0",
-    "mongoose": "^8.17.0"
+    "express": "^5.0.1",
+    "mongoose": "^8.17.0",
+    "typescript": "^5.9.2"
   },
   "devDependencies": {
     "nodemon": "^3.1.10"
