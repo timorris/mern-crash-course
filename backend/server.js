@@ -5,7 +5,7 @@ import cors from 'cors';
 import path from 'path';
 import dotenv from 'dotenv';
 
-dotenv.config();
+dotenv.config({ quiet: true });
 
 const app = express();
 
@@ -19,7 +19,9 @@ app.use('/api/products', productRoutes);
 
 if (process.env.NODE_ENV === 'production') {
     app.use(express.static(path.join(__dirname, 'frontend/dist')));
-    app.get('*', (req, res) => {
+    
+    // Handle React Router routes - fallback to index.html
+    app.use((req, res) => {
         res.sendFile(path.resolve(__dirname, "frontend", "dist", "index.html"));
     });
 }

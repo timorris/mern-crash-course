@@ -2,7 +2,7 @@ import { ClientSecretCredential } from "@azure/identity";
 import { SecretClient } from "@azure/keyvault-secrets";
 import dotenv from 'dotenv';
 
-dotenv.config();
+dotenv.config({ quiet: true });
 
 const url = process.env.KEYVAULT_URL;
 const clientId = process.env.CLIENT_ID;
