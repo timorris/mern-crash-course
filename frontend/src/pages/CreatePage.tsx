@@ -1,7 +1,6 @@
-
 import React from 'react';
 import { useState } from 'react';
-import { Box, Container, VStack, Heading, Input, Button } from '@chakra-ui/react';
+import { Box, Container, VStack, Heading, Input, Button, Text } from '@chakra-ui/react';
 import { toaster } from "@/components/ui/toaster";
 import { useProductStore } from '@/store/product';
 
@@ -31,9 +30,14 @@ const CreatePage: React.FC = () => {
   return (
     <Container maxW={"container.sm"}>
       <VStack>
-        <Heading as={'h1'} size='2xl' textAlign='center' mb={8}>
-          Create New Product
-        </Heading>
+        <Text textStyle='4xl' 
+          mt={4}
+          mb={8}
+          color={'gray.500'}
+          _hover={{ color: 'gray.400' }} 
+          fontWeight={'bold'}>
+            Create New Product
+        </Text>
         <Box w='full' bg='gray.600' p={6} borderRadius='lg' shadow='md'>
           <VStack>
             <Input
