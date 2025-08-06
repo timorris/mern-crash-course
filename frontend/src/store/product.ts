@@ -65,10 +65,9 @@ export const useProductStore = create<ProductState>()(
 			set((state) => ({
 		  		products: [...state.products, data.data],
 			}));
-			console.log('Product added:', newProduct);
 			const success: CreateProductResponse = {
-				success: true,
-				message: 'Product created successfully.',
+				success: data.success,
+				message: data.message,
 			};
 
 			return success;

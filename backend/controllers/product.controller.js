@@ -30,7 +30,7 @@ export const createProduct = async (req, res) => {
 
     try {
         const savedProduct = await newProduct.save();
-        res.status(201).json({ success: true, data: savedProduct });
+        res.status(201).json({ success: true, message: 'Produced Added Successfully.', data: savedProduct });
     }
     catch (error) {
         console.error('Error in Create product:', error);

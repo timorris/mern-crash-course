@@ -15,7 +15,7 @@ export const toaster = createToaster({
   pauseOnPageIdle: true,
 })
 
-export const Toaster = (): JSX.Element => {
+export const Toaster = () => {
   return (
     <Portal>
       <ChakraToaster toaster={toaster} insetInline={{ mdDown: '4' }}>
